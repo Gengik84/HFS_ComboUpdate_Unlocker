@@ -53,9 +53,16 @@ function selectPkg(){
   printInfo_Green "Please wait...It takes a few minutes..."
 }
 
-function showBuild(){
-  ver="$(cat Distribution | awk NR==12 | sed 's/<string>//' | sed 's/<\/string>//'  2>&1 )"
-  comboPackage=""${ver}"_ComboUpdate_unlocked.pkg"
+function showVerBuild(){
+  ver="$(cat Distribution | \
+    sed 's/<string>//' | sed 's/<\/string>//' | \
+    awk '{print $1;}'  | awk NR==14  2>&1)"
+   
+  build="$(cat Distribution | \
+    sed 's/<string>//' | sed 's/<\/string>//' | \
+    awk '{print $1;}'  | awk NR==12  2>&1 )"
+    
+ comboPackage=""${ver}"_"${build}"_ComboUpdate_unlocked.pkg"
 }
 
 function patchDistrubutionPKG(){
@@ -76,7 +83,7 @@ function endProgram(){
   mv "${tmpDirectory}"/"${comboPackage}" "${userPath}"
   rm -rf "${tmpDirectory}" 2>/dev/null
   STY_LINE
-  printInfo_Green "You can find ComboUpdate_Unlocked in ${userPath}"
+  printInfo_Green "You can find ${comboPackage} in:\n ${userPath}"
   STY_LINE
 }
 
@@ -86,7 +93,7 @@ function main(){
   
   selectPkg
   patchDistrubutionPKG
-  showBuild
+  showVerBuild
   makePkg
   endProgram
 }
