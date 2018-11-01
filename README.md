@@ -5,7 +5,7 @@ Script to unlock macOS Mojave Combo updates. Particularly for those who are stil
 ## How to use?
 Run the command below (will be downloaded to the current directory):
 ```
-curl -O https://raw.githubusercontent.com/Gengik84/https://raw.githubusercontent.com/Gengik84/HFS_ComboUpdate_Unlocker/master/HFS_ComboUpdate_Unlocker && chmod +x ./HFS_ComboUpdate_Unlocker && bash ./HFS_ComboUpdate_Unlocker
+curl -O https://raw.githubusercontent.com/Gengik84/HFS_ComboUpdate_Unlocker/master/HFS_ComboUpdate_Unlocker && chmod +x ./HFS_ComboUpdate_Unlocker && bash ./HFS_ComboUpdate_Unlocker
 ```
 
 ## Credits
